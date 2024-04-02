@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <title>API Uses</title>
+</head>
+<body>
+    <h1>Hello welcome to the Weather App </h1>
+    <form action="/submit" method="POST">
+        <label for="location">Enter a location</label><br>
+        <input class="search" type="location" id="location" name="location" required><br>    
+        <input class="button" type="submit" value="Enter">
+    </form>
+    <% if (locals.location) {%>
+    <div class="weather">
+        <h2 class="location"> <%= location %></h2>
+        <img src="https://openweathermap.org/img/wn/<%= image %>@2x.png">
+        <p class="desc"><%= description %></p>
+        <p class="temp"><%= temperature %>°C</p>
+    </div>
+    <% } %>
+</body>
+</html>
+<%- include("partials/footer.ejs") %>
